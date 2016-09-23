@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weekend Challenge 01 - Expenditures</title>
+    <link rel="stylesheet" href="stylesheet.css" />
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <form id="employee_info">
+      <table>
+        <tr>
+          <td><label for="first_name">First Name</label>
+            <input type="text" id="first_name" name="first_name" /></td>
+          <td><label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name" /></td>
+        </tr>
+        <tr>
+          <td><label for="id_number">ID Number</label>
+            <input type="text" id="id_number" name="id_number" /></td>
+          <td><label for="job_title">Job Title</label>
+            <input type="text" id="job_title" name="job_title" /></td>
+        </tr>
+        <tr>
+          <td><label for="salary">Salary</label>
+            <input type="text" id="salary" name="salary" /></td>
+          <td><button type="submit">Submit</button></td>
+        </tr>
+      </table>
+    </form>
+    <h3>Employee List</h3>
+    <div>
+      <table id="employee_data">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Annual Salary</th>
+          <th id="hide"></th>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
