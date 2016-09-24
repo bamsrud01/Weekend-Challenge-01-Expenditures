@@ -1,0 +1,63 @@
+* {
+  text-align: center;
+  font-family: 'Palatino Linotype', serif;
+}
+
+button, header {
+  color: white;
+  background-color: navy;
+}
+
+header, h3, td, th, button, input {
+  font-size: 24px;
+}
+
+header {
+  width: 95%;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+h3 {
+  text-decoration: underline;
+  padding-top: 40px;
+}
+
+header, table, h3 {
+  margin: auto;
+  margin-top: 15px;
+}
+
+body, td, th {
+  background-color: linen;
+}
+
+table {
+  width: 90%;
+  background-color: navy;
+  border: 5px navy solid;
+}
+
+button {
+  border-radius: 5px;
+  padding: 0 20px 0 20px;
+}
+
+th {
+  font-weight: bold;
+}
+
+label {
+  float: left;
+  margin-left: 100px;
+}
+
+input {
+  float: right;
+  margin-right: 100px;
+  width: 200px;
+}
+
+.delete {
+  width: 150px;
+}

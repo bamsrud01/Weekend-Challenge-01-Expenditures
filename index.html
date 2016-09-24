@@ -7,22 +7,25 @@
     <script src="app.js"></script>
   </head>
   <body>
+<header>
+  <h1>Weekend Challenge 1 - Expenditures</h1>
+</header>
     <form id="employee_info">
       <table>
         <tr>
-          <td><label for="first_name">First Name:</label>
+          <td class="input_table"><label for="first_name">First Name:</label>
             <input type="text" id="first_name" name="first_name" /></td>
-          <td><label for="last_name">Last Name:</label>
+          <td class="input_table"><label for="last_name">Last Name:</label>
             <input type="text" id="last_name" name="last_name" /></td>
         </tr>
         <tr>
-          <td><label for="id_number">ID Number:</label>
+          <td class="input_table"><label for="id_number">ID Number:</label>
             <input type="text" id="id_number" name="id_number" /></td>
-          <td><label for="job_title">Job Title:</label>
+          <td class="input_table"><label for="job_title">Job Title:</label>
             <input type="text" id="job_title" name="job_title" /></td>
         </tr>
         <tr>
-          <td><label for="salary">Salary:</label>
+          <td class="submit_table"><label for="salary">Salary:</label>
             <input type="text" id="salary" name="salary" /></td>
           <td><button type="submit">Submit</button></td>
         </tr>
@@ -37,7 +40,7 @@
           <th>ID</th>
           <th>Title</th>
           <th>Annual Salary</th>
-          <th id="hide"></th>
+          <th class="delete"></th>
         </tr>
       </table>
     </div>
