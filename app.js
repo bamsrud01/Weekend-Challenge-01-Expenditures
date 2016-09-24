@@ -8,7 +8,6 @@ $(document).ready(function() {
     var employee = {};
 
     var fields = $('#employee_info').serializeArray();
-    //console.log('fields', fields);
 
     fields.forEach(function(element, index) {
       employee[element.name] = element.value;
@@ -21,7 +20,7 @@ $(document).ready(function() {
   function appendDom(emp) {
     var $emp = $('<tr class="employee"></tr>');
     $emp.append(
-    '<td>' + emp['first_name'] + '</td><td>' + emp['last_name'] + '</td><td>' + emp['id_number'] + '</td><td>' + emp['job_title'] + '</td><td>' + emp['salary'] + '</td>');
+    '<td>' + emp['first_name'] + '</td><td>' + emp['last_name'] + '</td><td>' + emp['id_number'] + '</td><td>' + emp['job_title'] + '</td><td>' + emp['salary'] + '</td><td><button class="delete">Delete</button></td>');
     $('#employee_data').append($emp);
   }
 
