@@ -8,12 +8,11 @@ $(document).ready(function() {
   //This handles all the submission information
   $('#employee_info').on('submit', function(event) {
     event.preventDefault();
-    var employee = {};
+    var employee = {};    //This object will hold the submitted user information
     var fields = $('#employee_info').serializeArray();
     fields.forEach(function(element, index) {
       employee[element.name] = element.value;
     });
-    console.log('employee object', employee);
     $('#employee_info').find('input[type="text"]').val('');
     appendDom(employee);
   });
@@ -24,31 +23,28 @@ $(document).ready(function() {
     $emp.append(
     '<td class="employee_name">' + emp['first_name'] + '</td><td>' + emp['last_name'] + '</td><td>' + emp['id_number'] + '</td><td>' + emp['job_title'] + '</td><td>$' + emp['salary'] + '</td><td><button class="delete">Delete</button></td>');
     $('#employee_data').append($emp);
-    employeeSalaries[emp['first_name']] = parseInt(emp['salary']);
-    console.log(employeeSalaries);
+    employeeSalaries[emp['first_name']] = parseFloat(emp['salary']);
     calculate();
   }
 
   //This handles how an employee is removed from the list
   $('#employee_data').on('click', '.delete', function() {
     var $row = $(this).closest('tr');
-    var tempEmp = $row.find('.employee_name').text();
-    delete employeeSalaries[tempEmp];
-    console.log(employeeSalaries);
+    var tempEmp = $row.find('.employee_name').text();   //This variable finds the employee name.
+    delete employeeSalaries[tempEmp];   //Here, the employee name found in line 33 is used to remove the employee from the employeeSalaries object, allowing an accurate calculation
     $row = (this).closest('tr').remove();
     calculate();
   });
 
 
-
+  //Calculates the salary, using the employeeSalaries object.
   function calculate() {
     expense = 0;
     for (var money in employeeSalaries) {
       expense += employeeSalaries[money];
     }
-    expense = Math.round(expense * 100 / 12);
-    $('#total').text('$' + expense / 100);
-    console.log('Expense: ' + expense);
+    expense = Math.round(expense * 100 / 12);  //I multiplied by 100 and divided by 12 to keep the 2 decimal places after rounding.
+    $('#total').text('$' + expense / 100);  //The rounded number is divided by 100.
   };
 
 });
