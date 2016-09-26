@@ -32,7 +32,7 @@ $(document).ready(function() {
   $('#employee_data').on('click', '.delete', function() {
     var $row = $(this).closest('tr');
     var tempEmp = $row.find('.employee_id').text();   //This variable finds the employee ID.
-    delete employeeSalaries[tempEmp];   //Here, the employee ID found in line 33 is used to remove the employee from the employeeSalaries object, allowing an accurate calculation
+    delete employeeSalaries[tempEmp];   //Here, the employee id found in line 33 is used to remove the employee from the employeeSalaries object, allowing an accurate calculation
     $(this).closest('tr').remove();
     calculate();
   });
@@ -44,8 +44,10 @@ $(document).ready(function() {
     for (var money in employeeSalaries) {
       expense += employeeSalaries[money];
     }
-    expense = Math.round(expense * 100 / 12);  //I multiplied by 100 and divided by 12 to keep the 2 decimal places after rounding.
-    $('#total').text('$' + expense / 100);  //The rounded number is divided by 100.
+    expense = expense / 12;
+    $('#total').text('$' + expense.toFixed(2));
+    // expense = Math.round(expense * 100 / 12);  //I multiplied by 100 and divided by 12 to keep the 2 decimal places after rounding.
+    // $('#total').text('$' + expense / 100);  //The rounded number is divided by 100.
   };
 
 });
