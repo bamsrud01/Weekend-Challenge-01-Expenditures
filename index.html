@@ -3,47 +3,63 @@
   <head>
     <title>Weekend Challenge 01 - Expenditures</title>
     <link rel="stylesheet" href="stylesheet.css" />
-    <script src="jquery-3.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="app.js"></script>
   </head>
   <body>
-<header>
-  <h1>Weekend Challenge 1 - Expenditures</h1>
-</header>
-    <form id="employee_info">
-      <table>
-        <tr>
-          <td class="input_table"><label for="first_name">First Name:</label>
-            <input type="text" id="first_name" name="first_name" required/></td>
-          <td class="input_table"><label for="last_name">Last Name:</label>
-            <input type="text" id="last_name" name="last_name" required/></td>
-        </tr>
-        <tr>
-          <td class="input_table"><label for="id_number">ID Number:</label>
-            <input type="text" id="id_number" name="id_number" required/></td>
-          <td class="input_table"><label for="job_title">Job Title:</label>
-            <input type="text" id="job_title" name="job_title" required/></td>
-        </tr>
-        <tr>
-          <td class="submit_table"><label for="salary">Salary:</label>
-            <input type="number" id="salary" name="salary" required/></td>
-          <td><button type="submit">Submit</button></td>
-        </tr>
-      </table>
-    </form>
-    <h3>Employee List</h3>
-    <div>
-      <table id="employee_data">
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Annual Salary</th>
-          <th class="delete"></th>
-        </tr>
-      </table>
-    </div>
-    <h3>Monthly Salary Expenditure: <span id="total">$0.00</span></h3>
+    <main ng-app="EmployeeApp">
+      <section ng-controller="EmployeeController as AngularEmployee">
+        <header>
+          <h1>Weekend Challenge 1 - Expenditures</h1>
+        </header>
+        <form id="employee_info">
+          <table>
+            <tr>
+              <td class="input_table"><label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" ng-model="AngularEmployee.employee.first" required/></td>
+              <td class="input_table"><label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" ng-model="AngularEmployee.employee.last" required/></td>
+            </tr>
+            <tr>
+              <td class="input_table"><label for="id_number">ID Number:</label>
+                <input type="text" id="id_number" name="id_number" ng-model="AngularEmployee.employee.id" required/></td>
+              <td class="input_table"><label for="job_title">Job Title:</label>
+                <input type="text" id="job_title" name="job_title" ng-model="AngularEmployee.employee.title" required/></td>
+            </tr>
+            <tr>
+              <td class="submit_table"><label for="salary">Salary:</label>
+                <input type="number" id="salary" name="salary" ng-model="AngularEmployee.employee.salary" required/></td>
+              <td><button type="submit" ng-click="AngularEmployee.createEmployee()">Submit</button></td>
+            </tr>
+          </table>
+        </form>
+        <h3>Employee List</h3>
+        <div>
+          <table id="employee_data">
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Annual Salary</th>
+                <th class="delete"></th>
+              </tr>
+            </thead>
+            <tbody ng-repeat="employee in AngularEmployee.allEmployees">
+              <tr>
+                <td>{{ employee.first }}</td>
+                <td>{{ employee.last }}</td>
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.title }}</td>
+                <td>${{ employee.salary.toFixed(2) }}</td>
+                <td><button class="delete" ng-click="AngularEmployee.deleteEmployee($index)">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Monthly Salary Expenditure: <span id="total">{{ AngularEmployee.expense }}</span></h3>
+      </section>
+    </main>
   </body>
 </html>
